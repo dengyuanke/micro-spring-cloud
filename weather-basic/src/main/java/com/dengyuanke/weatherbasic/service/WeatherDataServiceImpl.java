@@ -52,6 +52,12 @@ public class WeatherDataServiceImpl implements WeatherDataService {
 		return this.doGetWeatherData(uri);
 	}
 
+	@Override
+	public void syncDataByCityId(String cityId) {
+		String uri = WEATHER_API + "?citykey=" + cityId;
+		this.saveWeatherData(uri);
+	}
+
 	private WeatherResponse doGetWeatherData(String uri) {
 		ValueOperations<String, String> ops = this.stringRedisTemplate.opsForValue();
 		String key = uri;
@@ -84,5 +90,20 @@ public class WeatherDataServiceImpl implements WeatherDataService {
 		}
 
 		return weather;
+	}
+
+	private void saveWeatherData(String uri) {
+		ValueOperations<String, String> ops = this.stringRedisTemplate.opsForValue();
+		String key = uri;
+		String strBody = null;
+
+		ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
+
+		if (response.getStatusCodeValue() == 200) {
+			strBody = response.getBody();
+		}
+
+		ops.set(key, strBody, TIME_OUT, TimeUnit.SECONDS);
+
 	}
 }
