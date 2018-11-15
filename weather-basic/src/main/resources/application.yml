@@ -3,7 +3,7 @@ server:
 
 spring:
   redis:
-    host: 118.24.178.139
+    host: 94.191.34.212
     port: 6379
     erroKey: erroNum
     wsKey: wsKey
