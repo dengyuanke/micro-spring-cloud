@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  redis:
+    host: 94.191.34.212
+    port: 6379
+    erroKey: erroNum
+    wsKey: wsKey
+    erroChannel: erroChannel
+  thymeleaf:
+    cache: false
