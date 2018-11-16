@@ -1,12 +1,11 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
-  redis:
-    host: 94.191.34.212
-    port: 6379
-    erroKey: erroNum
-    wsKey: wsKey
-    erroChannel: erroChannel
-  thymeleaf:
-    cache: false
+  application:
+    name: weather-data
+
+eureka:
+  client:
+    service-url:
+      defaultZonet: http://localhost:8761/eureka/
