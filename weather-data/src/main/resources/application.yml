@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: weather-data
+  redis:
+    host: 94.191.34.212
+    port: 6379
+    erroKey: erroNum
+    wsKey: wsKey
+    erroChannel: erroChannel
 
 eureka:
   client:
