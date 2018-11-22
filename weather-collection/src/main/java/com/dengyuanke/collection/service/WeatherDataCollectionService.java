@@ -1,4 +1,4 @@
-package com.dengyuanke.weatherbasic.service;
+package com.dengyuanke.collection.service;
 
 
 

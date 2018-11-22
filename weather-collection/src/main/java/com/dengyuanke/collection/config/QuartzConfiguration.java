@@ -1,6 +1,6 @@
-package com.dengyuanke.weatherbasic.config;
+package com.dengyuanke.collection.config;
 
-import com.dengyuanke.weatherbasic.job.WeatherDataSyncJob;
+import com.dengyuanke.collection.job.WeatherDataSyncJob;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.SimpleScheduleBuilder;

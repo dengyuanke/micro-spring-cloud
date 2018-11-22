@@ -1,10 +1,11 @@
-package com.dengyuanke.weatherbasic.job;
+package com.dengyuanke.collection.job;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.dengyuanke.weatherbasic.service.WeatherDataCollectionService;
-import com.dengyuanke.weatherbasic.vo.City;
+import com.dengyuanke.collection.service.CityClient;
+import com.dengyuanke.collection.service.WeatherDataCollectionService;
+import com.dengyuanke.collection.vo.City;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -21,21 +22,21 @@ public class WeatherDataSyncJob extends QuartzJobBean {
 
 	@Autowired
 	private WeatherDataCollectionService weatherDataCollectionServiceImpl;
+
+	@Autowired
+	private CityClient cityClient;
 	
 	@Override
 	protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
 		log.info("Start 天气数据同步任务");
 		
-		//TODO  改为城市数据API微服务来提供数据
+		//由城市数据API微服务来提供数据
 		List<City> cityList = null;
 		try {
-			//TODO 调用城市数据API
-			cityList=new ArrayList<>();
-			City city=new City();
-			city.setCityId("101280601");
-			cityList.add(city);
+			cityList=cityClient.listCity();
 		} catch (Exception e) {
 			log.error("获取城市信息异常！", e);
+			throw new RuntimeException("获取城市信息异常",e);
 		}
 		
 		for (City city : cityList) {

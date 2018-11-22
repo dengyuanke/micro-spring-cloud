@@ -17,3 +17,10 @@ eureka:
   client:
     service-url:
       defaultZonet: http://localhost:8761/eureka/
+
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 5000
+        readTimeout: 5000

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dengyuanke.weatherbasic.service;
+package com.dengyuanke.collection.service;
 
 import java.util.concurrent.TimeUnit;
 

@@ -1,4 +1,4 @@
-package com.dengyuanke.weatherbasic.config;
+package com.dengyuanke.collection.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
