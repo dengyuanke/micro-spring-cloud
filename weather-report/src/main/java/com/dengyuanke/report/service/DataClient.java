@@ -1,7 +1,6 @@
 package com.dengyuanke.report.service;
 
 import com.dengyuanke.report.vo.City;
-import com.dengyuanke.report.vo.Weather;
 import com.dengyuanke.report.vo.WeatherResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,7 @@ import java.util.List;
  * Author: dyk
  * Create time: 2018/12/25  11:21
  */
-@FeignClient("weather-zuul-api")
+@FeignClient(name = "weather-zuul-api",fallback = DataClientFallback.class)
 public interface DataClient {
 
     /**
