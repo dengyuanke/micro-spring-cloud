@@ -1,6 +1,6 @@
 package com.dengyuanke.report.controller;
 
-import com.dengyuanke.report.service.CityClient;
+import com.dengyuanke.report.service.DataClient;
 import com.dengyuanke.report.service.WeatherReportService;
 import com.dengyuanke.report.vo.City;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +28,7 @@ public class WeatherReportController {
 	private WeatherReportService weatherReportService;
 
 	@Autowired
-	private CityClient cityClient;
+	private DataClient cityClient;
 
 	@GetMapping("/cityId/{cityId}")
 	public ModelAndView getReportByCityId(@PathVariable("cityId") String cityId, Model model) throws Exception {

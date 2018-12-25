@@ -16,12 +16,12 @@ public class WeatherReportServiceImpl implements WeatherReportService {
 
 
 	@Autowired
-	private WeatherDataClient weatherDataClient;
+	private DataClient dataClient;
 
 	@Override
 	public Weather getDataByCityId(String cityId) {
 		// 由天气数据API微服务来提供数据
-		WeatherResponse response = weatherDataClient.getDataByCityid(cityId);
+		WeatherResponse response = dataClient.getDataByCityId(cityId);
 		return response.getData();
 	}
 }

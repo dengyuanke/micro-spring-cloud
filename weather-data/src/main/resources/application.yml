@@ -5,7 +5,7 @@ spring:
   application:
     name: weather-data
   redis:
-    host: 94.191.34.212
+    host: 127.0.0.1
     port: 6379
     erroKey: erroNum
     wsKey: wsKey
